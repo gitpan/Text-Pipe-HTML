@@ -1,0 +1,10 @@
+---
+global:
+  name: Text-Pipe-HTML
+releases:
+  - author: 'Marcel Gruenauer <marcel@cpan.org>'
+    changes:
+      - original version
+    date: 2007-11-11T21:22:56Z
+    tags: []
+    version: 0.01
