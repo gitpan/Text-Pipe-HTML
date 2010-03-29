@@ -1,93 +1,79 @@
-package Text::Pipe::HTML::EncodeEntities;
-
+use 5.008;
 use strict;
 use warnings;
+
+package Text::Pipe::HTML::EncodeEntities;
+our $VERSION = '1.100880';
+# ABSTRACT: Text pipe that can encode HTML entities
 use HTML::Entities;
-
-
-our $VERSION = '0.01';
-
-
-use base qw(Text::Pipe::Base);
-
+use parent qw(Text::Pipe::HTML);
 
 sub filter_single {
     my ($self, $input) = @_;
     encode_entities($input);
     $input;
 }
-
-
 1;
 
 
 __END__
-
-
+=pod
 
 =head1 NAME
 
-Text::Pipe::HTML::EncodeEntities - Text pipe that can encode HTML entitites
+Text::Pipe::HTML::EncodeEntities - Text pipe that can encode HTML entities
+
+=head1 VERSION
+
+version 1.100880
 
 =head1 SYNOPSIS
 
-    my $pipe = Text::Pipe->new('HTML:EnccodeEntities');
-    my $result = $pipe->filter(...);
-
-=head1 DESCRIPTION
-
-Text::Pipe::HTML::EncodeEntities inherits from L<Text::Pipe::Base>.
-
-Methods inherited from L<Text::Pipe::Base>:
-
-     new()
+    my $pipe = Text::Pipe->new('HTML:EncodeEntities');
+    my $result = $pipe->filter(
+        # ...
+    );
 
 =head1 METHODS
 
-=over 4
+=head2 C<filter_single>
 
-
-
-=item filter_single
-
-Takes a single string, encodes it with HTML entities, and returns it.
-
-=back
-
-=head1 TAGS
-
-If you talk about this module in blogs, on del.icio.us or anywhere else,
-please use the C<textpipehtml> tag.
-
-=head1 BUGS AND LIMITATIONS
-
-No bugs have been reported.
-
-Please report any bugs or feature requests to
-C<<bug-text-pipe-html@rt.cpan.org>>, or through the web interface at
-L<http://rt.cpan.org>.
+Takes a single string, encodes it with HTML entities, and returns it. See
+L<HTML::Entities> for details.
 
 =head1 INSTALLATION
 
 See perlmodinstall for information and options on installing Perl modules.
 
+=head1 BUGS AND LIMITATIONS
+
+No bugs have been reported.
+
+Please report any bugs or feature requests through the web interface at
+L<http://rt.cpan.org/Public/Dist/Display.html?Name=Text-Pipe-HTML>.
+
 =head1 AVAILABILITY
 
 The latest version of this module is available from the Comprehensive Perl
-Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a CPAN
-site near you. Or see <http://www.perl.com/CPAN/authors/id/M/MA/MARCEL/>.
+Archive Network (CPAN). Visit L<http://www.perl.com/CPAN/> to find a CPAN
+site near you, or see
+L<http://search.cpan.org/dist/Text-Pipe-HTML/>.
+
+The development version lives at
+L<http://github.com/hanekomu/Text-Pipe-HTML/>.
+Instead of sending patches, please fork this project using the standard git
+and github infrastructure.
 
 =head1 AUTHOR
 
-Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
+  Marcel Gruenauer <marcel@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2007 by Marcel GrE<uuml>nauer
+This software is copyright (c) 2007 by Marcel Gruenauer.
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
-
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
 
